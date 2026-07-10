@@ -16,3 +16,7 @@
 # Keep serialization/JSON parsing classes
 -keepattributes Signature
 -keepattributes *Annotation*
+
+# Flutter's PlayStoreDeferredComponentManager references Play Core (optional)
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }
