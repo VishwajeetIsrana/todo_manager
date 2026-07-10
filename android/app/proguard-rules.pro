@@ -6,6 +6,11 @@
 -keep class io.flutter.** { *; }
 -keep class io.flutter.plugins.** { *; }
 
+# Keep plugin classes explicitly (Registered in GeneratedPluginRegistrant)
+-keep class io.flutter.plugins.GeneratedPluginRegistrant { *; }
+-keep class io.flutter.plugins.sharedpreferences.** { *; }
+-keep class io.flutter.plugins.pathprovider.** { *; }
+
 # Keep Kotlin metadata
 -keep class kotlin.Metadata { *; }
 
