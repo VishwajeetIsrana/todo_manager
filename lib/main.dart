@@ -11,6 +11,7 @@ import 'services/todo_api_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   final storage = LocalStorageService();
   final dio = Dio(BaseOptions(
     connectTimeout: const Duration(seconds: 10),

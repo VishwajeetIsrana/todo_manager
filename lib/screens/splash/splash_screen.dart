@@ -36,12 +36,17 @@ class _SplashScreenState extends State<SplashScreen>
   Future<void> _checkAuth() async {
     await Future.delayed(const Duration(milliseconds: 2200));
     if (!mounted) return;
-    final storage = context.read<LocalStorageService>();
-    final loggedIn = await storage.isLoggedIn();
-    if (!mounted) return;
-    if (loggedIn) {
-      Navigator.pushReplacementNamed(context, AppRoutes.home);
-    } else {
+    try {
+      final storage = context.read<LocalStorageService>();
+      final loggedIn = await storage.isLoggedIn();
+      if (!mounted) return;
+      if (loggedIn) {
+        Navigator.pushReplacementNamed(context, AppRoutes.home);
+      } else {
+        Navigator.pushReplacementNamed(context, AppRoutes.login);
+      }
+    } catch (_) {
+      if (!mounted) return;
       Navigator.pushReplacementNamed(context, AppRoutes.login);
     }
   }
